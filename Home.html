@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Home.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-logo"><img src="image/MoneyIcon2.png"></div>
+        <div class="header-list">
+            <ul>
+                <li><a href="About.html">About us</a></li>
+                <li><a href="Outcome.html">Outcome</a></li>
+                <li><a href="Income.html">Income</a></li>
+            </ul>
+        </div>
+        <div class="header-disable">
+            <li>Home</li>
+            <li>
+                <div id="name">Hai</div>
+            </li>
+        </div>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="box balance">
+            <h5><b>Balance</b></h5>
+            <p>
+                <h2><b>Rp</b></h2><span id="balance"><h1 style="text-align: right; text-align: bottom; padding-top: 11%;"><b>0.00</b></h1></span></p>
+        </div>
+        <div class="box transaction" id="transaction">
+            <h5><b>Transaction</b></h5>
+            <div id="transaction-list" class="transaction-list"></div>
+            <p id="transaction-status" style="display: none; justify-content: center; align-items: center; font-size: 18px; margin: 20px auto;"><b>Belum ada transaksi sejauh ini.</b></p>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function formatCurrency(amount) {
+                return amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            }
+
+            function updateBalance() {
+                var transactionHistory = JSON.parse(localStorage.getItem("data")) || [];
+                var balance = 0;
+
+                transactionHistory.forEach(function(transaction) {
+                    if (transaction.type === "Makan" || transaction.type === "Transportasi" || transaction.type === "Liburan" || transaction.type === "Belanja" || transaction.type === "Kebutuhan" || transaction.type === "Edukasi" || transaction.type === "Asuransi" || transaction.type === "Kesehatan") {
+                        balance -= parseFloat(transaction.amount);
+                    } else {
+                        balance += parseFloat(transaction.amount);
+                    }
+                });
+
+                $("#balance").html("<h1 style='text-align: right; text-align: bottom; padding-top: 11%;'><b>" + formatCurrency(balance) + "</b></h1>");
+            }
+
+            function updateHistory() {
+                var transactionHistory = JSON.parse(localStorage.getItem("data")) || [];
+                var transactionList = $("#transaction-list");
+
+                transactionList.empty();
+
+                if (transactionHistory.length > 0) {
+                    transactionHistory.forEach(function(transaction) {
+                        if (transaction.type === "Makan" || transaction.type === "Transportasi" || transaction.type === "Liburan" || transaction.type === "Belanja" || transaction.type === "Kebutuhan" || transaction.type === "Edukasi" || transaction.type === "Asuransi" || transaction.type === "Kesehatan") {
+                            var listItem = $("<div></div>").addClass("transaction-item-outcome");
+                            listItem.addClass(transaction.type.toLowerCase());
+                            listItem.html("<strong>" + transaction.name + " (" + transaction.type + ")" + ":</strong> Rp " + formatCurrency(transaction.amount) + " (" + transaction.date + ")");
+                            transactionList.append(listItem);
+                        } else {
+                            var listItem = $("<div></div>").addClass("transaction-item");
+                            listItem.addClass(transaction.type.toLowerCase());
+                            listItem.html("<strong>" + transaction.name + " (" + transaction.type + ")" + ":</strong> Rp " + formatCurrency(transaction.amount) + " (" + transaction.date + ")");
+                            transactionList.append(listItem);
+                        }
+                    });
+                } else {
+                    $("#transaction-status").show();
+                }
+            }
+            var activeUser = localStorage.getItem("active_user");
+            if (activeUser) {
+                $("#name").text("Hai, " + activeUser);
+            }
+
+            updateBalance();
+
+            updateHistory();
+        });
+    </script>
+</body>
+
+</html>

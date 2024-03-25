@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel='stylesheet' href='Daftar.css'>
+</head>
+
+<body>
+    <div class="container">
+        <img src="image/MoneyIcon.png" alt="Avatar" class="image">
+        <div class="overlay">
+            <div class="text"><img src="image/MoneyIcon2.png" alt="Avatar" class="image-hover"></div>
+        </div>
+    </div>
+    <h1>Login</h1>
+    <form id="form-daftar" onsubmit="return login()">
+        <table>
+            <tr>
+                <td>
+                    <label for="username">Nama :    </label>
+                </td>
+                <td>
+                    <input type="text" id="username-box" name="username" class="input" placeholder="Nama" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Password : </label>
+                </td>
+                <td>
+                    <input type="password" id="password-box" name="password" class="input" placeholder="Password" required>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Login" class="button">
+    </form>
+    <script>
+        function login() {
+            var username = document.getElementById("username-box").value;
+            var password = document.getElementById("password-box").value;
+
+            if (!localStorage.getItem(username)) {
+                alert("Username not found. Please register first!");
+                return false;
+            }
+
+            var storedPassword = localStorage.getItem(username);
+
+            if (password !== storedPassword) {
+                alert("Incorrect password.");
+                return false;
+            }
+
+            localStorage.setItem("active_user", username);
+            window.location.href = "Home.html";
+            return false;
+        }
+    </script>
+</body>
+
+</html>

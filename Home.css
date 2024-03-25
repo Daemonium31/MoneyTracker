@@ -1,0 +1,132 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.header-logo img {
+    width: 100px;
+    height: 100px;
+    vertical-align: top;
+}
+
+.header {
+    background-color: #610026;
+    color: white;
+    height: 120px;
+}
+
+.header-logo {
+    font-size: 55px;
+    float: left;
+    padding: 20px 20px;
+    padding-right: 0px;
+    color: white;
+}
+
+.header-list li {
+    float: right;
+    padding: 47px 40px;
+}
+
+.header-list li:hover {
+    background-color: #570B0B;
+    color: #610026;
+}
+
+.header-list a:hover {
+    color: white;
+}
+
+.header-disable li {
+    float: right;
+    padding: 47px 40px;
+    color: white;
+    background-color: #570B0B;
+}
+
+li {
+    list-style: none;
+    font-family: 'Source Sans Pro Topnav', sans-serif;
+    float: left;
+}
+
+body {
+    font-family: 'lemon milk';
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* Container styles */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+/* Box styles */
+
+.box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.balance {
+    flex-basis: 30%;
+    background-color: #B4E889;
+}
+
+.transaction {
+    flex-basis: 65%;
+    background-color: #FACFAD;
+    overflow-y: auto;
+}
+
+
+/* Transaction history styles */
+
+.transaction h5 {
+    margin-bottom: 10px;
+}
+
+.transaction-list {
+    padding: 10px;
+}
+
+.transaction-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #c3f0ca;
+    /* Default background color */
+}
+
+.transaction-item-outcome {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #E88989;
+    /* Default background color */
+}
+
+.transaction-item.outcome {
+    background-color: #E88989;
+    /* Outcome background color */
+}

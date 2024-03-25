@@ -1,0 +1,115 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.header-logo img {
+    width: 100px;
+    height: 100px;
+    vertical-align: top;
+}
+
+.header {
+    background-color: #610026;
+    color: white;
+    height: 120px;
+}
+
+.header-logo {
+    font-size: 55px;
+    float: left;
+    padding: 20px 20px;
+    padding-right: 0px;
+    color: white;
+}
+
+.header-list li {
+    float: right;
+    padding: 47px 40px;
+}
+
+.header-list li:hover {
+    background-color: #570B0B;
+    color: #610026;
+}
+
+.header-list a:hover {
+    color: white;
+}
+
+.header-disable li {
+    float: right;
+    padding: 47px 40px;
+    color: white;
+    background-color: #570B0B;
+}
+
+li {
+    list-style: none;
+    font-family: 'Source Sans Pro Topnav', sans-serif;
+    float: left;
+}
+
+body {
+    font-family: 'lemon milk';
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#testimonial {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    text-align: center;
+    margin: 20px;
+    color: white;
+}
+
+#testimonial .testimonials {
+    background-color: #900C3F;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.testimonials img {
+    width: 20%;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.testimonials img:hover {
+    transform: scale(1.2);
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #570B0B;
+    width: 200vh;
+    align-items: ce;
+    height: 50px;
+    margin-left: 20px;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+}

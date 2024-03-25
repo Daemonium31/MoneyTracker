@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="About.css">
+    <title>About Us</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-logo"><img src="image/MoneyIcon2.png"></div>
+        <div class="header-disable">
+            <ul>
+                <li>About us</li>
+                <li>Outcome</li>
+                <li>Income</li>
+        </div>
+        <div class="header-disable">
+            <li>Home</li>
+        </div>
+        </ul>
+    </div>
+
+    <div id="testimonial">
+        <div class="testimonials">
+            <img src="image/frans.jpg">
+            <p>Fransiskus Asisi Brian Nugrah Mariarvin - 00000097514</p>
+        </div>
+        <div class="testimonials">
+            <img src="image/jo.jpg">
+            <p>Jonathan Karisma Putra - 00000110209</p>
+        </div>
+        <div class="testimonials">
+            <img src="image/raihan.jpg">
+            <p>Raihan Maulidar - 00000104962</p>
+        </div>
+        <div class="testimonials">
+            <img src="image/wisnu.jpg">
+            <p>Wisnu Lintang Trenggono - 00000090455</p>
+        </div>
+    </div>
+    <button type="button" class="btn" onclick="location.href ='index.html'">Daftar</button>
+    <button id="resetbutton" class="btn" onclick="localStorage.clear(); alert('Data has been reset.');">Reset Data</button>
+    <script>
+        document.getElementById('resetbutton').addEventListener('click', () => {
+            localStorage.clear();
+        });
+        alert("Jika sudah berada di About, tidak dapat berpindah selain Register!");
+    </script>

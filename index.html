@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel='stylesheet' href='Daftar.css'>
+</head>
+
+<body>
+    <div class="container">
+        <img src="image/MoneyIcon.png" alt="Avatar" class="image">
+        <div class="overlay">
+            <div class="text"><img src="image/MoneyIcon2.png" alt="Avatar" class="image-hover"></div>
+        </div>
+    </div>
+    <h1>Register</h1>
+    <form id="form-daftar" onsubmit="return daftar()">
+        <table>
+            <tr>
+                <td>
+                    <label for="username">Nama :    </label>
+                </td>
+                <td>
+                    <input type="text" id="username-box" name="username" class="input" placeholder="Nama" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Password : </label>
+                </td>
+                <td>
+                    <input type="password" id="password-box" name="password" class="input" placeholder="Password" required>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Daftar" class="button">
+    </form>
+    <script>
+        function daftar() {
+            var username = document.getElementById("username-box").value;
+            var password = document.getElementById("password-box").value;
+
+            if (localStorage.getItem(username)) {
+                alert("Username already exists. Please choose a different username.");
+                return false;
+            }
+
+            localStorage.setItem(username, password);
+            window.location.href = "Login.html";
+            return false;
+        }
+    </script>
+</body>
+
+</html>
